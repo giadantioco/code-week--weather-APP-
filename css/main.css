@@ -1,0 +1,22 @@
+/* flex container */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80vh;
+}
+
+/* interactive div */
+.weather-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center;
+    margin: 20px; */
+}
+
+/* to fix img display */
+.weather-result > img {
+    max-width: 120px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- start header -->
+    <h1>
+        WEATHER APP
+    </h1>
+    <!-- end header -->
+    <!-- start cities -->
+    <div class="cities">
+        <select name="city" id="city-select" class="city-select">
+            <option value="" class="default">Please choose a city</option>
+            <!-- city options implemented with JS -->
+        </select>
+        <button class="geolocation">GEOLOCATION</button>
+        <input 
+        type="text" 
+        id="city-input"
+        onfocus="this.value=''" 
+        class="city-input" 
+        value="Please insert a city">
+        <button id="submit-button">Submit</button>
+    </div>
+    <!-- end cities -->
+    <main>
+        <!-- API call -->
+        <div class="container">
+            <div class="weather-result"></div>
+        </div>
+    </main>
+
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
