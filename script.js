@@ -3,7 +3,9 @@ import { cities } from './data/cities.js'
 import { API_KEY } from './keys.js'
 
 // select global elements
-let containerEl = document.querySelector('.weather-result')
+const headerEl = document.querySelector('.date-hour')
+const containerEl = document.querySelector('.weather-result')
+const extraEl = document.querySelector('.extra-result')
 
 
 // select list generator
@@ -52,15 +54,15 @@ cities.forEach(city => dropDownSelect(city))
 
 // API call with awayt asinc --> https://api.openweathermap.org/data/2.5/weather?q=milan&appid=&{APP_KEY}
 
-const endpoint = 'milano'
+let endpoint = 'milano';
 
 // from MDN -> 
-async function fetchWeather() {
+async function fetchWeather(city) {
     
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${endpoint}&appid=${API_KEY}&units=metric&lang=it`);
     const data = await response.json();
-    // console.log(data)
+    console.log(data)
 
     // pass the renderWeather function to display data
     renderWeather(data);
@@ -70,6 +72,8 @@ async function fetchWeather() {
     cambiaColoreSfondo();
 
     // success(data)
+
+    inputNewCity(city)
 
 
   } 
@@ -98,40 +102,42 @@ async function fetchWeather() {
 
     // clear the container when updating fetch
     containerEl.innerHTML = "";
+    headerEl.innerHTML = "";
+    extraEl.innerHTML = "";
 
     // create H2 for city name
-    const cityName = document.createElement('h2')
-    // create p tags for description, temperature & date
+    const cityNameEl = document.createElement('h2')
+    // create p tags for descriptions and icon
+    const dayEl = document.createElement('p')
+    const timeEl = document.createElement('p')
     const dayTimeEl = document.createElement('p')
     const descriptionEl = document.createElement('p')
     const temperatureEl = document.createElement('p')
-    //create img tag for weather icon
+    const windEl = document.createElement('p')
+    const humidityEl = document.createElement('p')
     const imgEl = document.createElement('img')
 
     // get the API infos 
-    cityName.textContent = weather.name
-    dayTimeEl.textContent = weather.dt
+    cityNameEl.textContent = weather.name
     descriptionEl.textContent = weather.weather[0].description
-    temperatureEl.textContent = `${weather.main.temp} °C`
+    temperatureEl.innerHTML = `<img src="./img/SVG/temperature.svg" alt="Temperature-Icon"> ${weather.main.temp} °C`
+    windEl.innerHTML = `<img src="./img/SVG/wind.svg" alt="Wind Icon"> ${weather.wind.speed} KMH`
+    humidityEl.innerHTML = `<img src="./img/SVG/humidity.svg" alt="Humidity Icon"> ${weather.main.humidity} %`
 
     const iconCode = weather.weather[0].icon
     imgEl.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png` 
     
 
-    // display the infos in the HTML tags just created
-    containerEl.append(cityName, dayTimeEl, descriptionEl, temperatureEl, imgEl)
+    // display the infos in the HTML tags
+    headerEl.append(dayTimeEl)
+    extraEl.append(temperatureEl, windEl, humidityEl)
+    containerEl.append(cityNameEl, descriptionEl, imgEl)
     // console.log(containerEl)   
 
     const renderDateTime = () => {
-      // access the content inside element
-      let dayTime = dayTimeEl.textContent;
-      
-      // convert dayTime to Num 
-      let dayTimeToNum = Number(dayTime)
-      console.log(dayTimeToNum)
 
       // create the data object based on the UNIX
-      let date = new Date(dayTimeToNum * 1000)
+      let date = new Date(weather.dt * 1000)
       console.log(date)
       
       // render time from the dayTime var
@@ -148,6 +154,7 @@ async function fetchWeather() {
       console.log(onlyDate)
 
       dayTimeEl.textContent = onlyDate + formattedTime
+      
       
     }
     
@@ -191,7 +198,7 @@ const renderNewCity = () => {
      // update city var with clickedValue
       let city = clickedValue
 
-       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=it`)
+       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
        .then((res) => res.json())
        .then((data) => {
 
@@ -308,7 +315,7 @@ if ('geolocation' in navigator) {
 
 
 
-// input any city
+// city newinput
 const inputNewCity = () => {
 
   const inputEl = document.querySelector('#city-input')
@@ -319,12 +326,14 @@ const inputNewCity = () => {
     console.log(inputValueEl)
 
     if(inputValueEl) {
+      endpoint = inputValueEl
       fetchWeather(inputValueEl)
+      
     }
   })
   // const inputValueEl = inputEl.value
   // console.log(inputValueEl)
 }
 
-inputNewCity()
+
 

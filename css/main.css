@@ -20,3 +20,12 @@
 .weather-result > img {
     max-width: 120px;
 }
+
+.extra-result > p {
+    display: flex;
+    flex-direction: column;
+}
+
+.extra-result > p > img {
+    width: 25px;
+}

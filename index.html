@@ -7,13 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- start header -->
-    <h1>
-        WEATHER APP
-    </h1>
-    <!-- end header -->
-    <!-- start cities -->
-    <div class="cities">
+    <!-- start header container -->
+    <header class="header-container">
+        <img src="./img/logo.png" alt="logo" width="130px">
+        <div class="date-hour"></div>
+    </header>
+    <!-- end header container -->
+
+    <!-- start fields container -->
+    <div class="fields-container">
         <select name="city" id="city-select" class="city-select">
             <option value="" class="default">Please choose a city</option>
             <!-- city options implemented with JS -->
@@ -25,15 +27,16 @@
         onfocus="this.value=''" 
         class="city-input" 
         value="Please insert a city">
-        <button id="submit-button">Submit</button>
+        <button id="submit">Submit</button>
     </div>
-    <!-- end cities -->
-    <main>
-        <!-- API call -->
-        <div class="container">
-            <div class="weather-result"></div>
-        </div>
-    </main>
+    <!-- end fields container -->
+
+    <!-- start display container -->
+    <div class="display-container">
+        <div class="weather-result"></div>
+        <div class="extra-result"></div>
+    </div>
+    <!-- end display container -->
 
 
     <script src="script.js" type="module"></script>
