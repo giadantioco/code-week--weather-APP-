@@ -1,0 +1,94 @@
+/* flex container */
+/* .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80vh;
+} */
+
+/* main container */
+.display-container {
+    width: 80vw;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* interactive div */
+.weather-result {
+    background-color: rgba(128, 128, 128, 0.373);
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    /* align-items: center; */
+    /* justify-content: center;
+    margin: 20px; */
+    padding: 20px;
+    gap: 10px;
+}
+
+/* img width */
+.weather-result > img {
+    max-width: 120px;
+}
+
+/* name city */
+.weather-result h2 {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* description and icon container */
+.description-and-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* grab just description */
+.description-and-icon > p {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* additional results / extras */
+.extra-result {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* dislpay elements in colums */
+.temperature, .wind, .humidity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+/* .extra-result > p {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* change font size of first p elements */
+.temperature p:first-of-type {
+    font-size: 12px;
+}
+
+.wind p:first-of-type {
+    font-size: 12px;
+}
+
+.humidity p:first-of-type {
+    font-size: 12px;
+}
+
+/* icon dimension */
+.extra-result > p > img {
+    width: 25px;
+}

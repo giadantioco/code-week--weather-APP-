@@ -1,0 +1,31 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('title-select.css');
+@import url('fields.css');
+@import url('display.css');
+
+
+/* standards */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Syne', sans-serif;
+}
+
+/* layout body */
+body {
+    height: 100vh;
+    background: url('./img/background.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+/* layout container all containers */
+.main-container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 30px; 
+}

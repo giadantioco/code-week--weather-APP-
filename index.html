@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="main-container">
     <!-- start header container -->
-    <header class="header-container">
-        <img src="./img/logo.png" alt="logo" width="130px">
-        <div class="date-hour"></div>
+    <header class="container header-container">
+        <img src="./img/logo.png" alt="logo" class="logo">
+        <div class="dateTime-container"></div>
     </header>
     <!-- end header container -->
 
     <!-- start fields container -->
-    <div class="fields-container">
+    <div class="container fields-container">
         <select name="city" id="city-select" class="city-select">
+            <img src="./img/SVG/arrow_down.svg" alt="arrow-select">
             <option value="" class="default">Please choose a city</option>
             <!-- city options implemented with JS -->
         </select>
-        <button class="geolocation">GEOLOCATION</button>
-        <input 
-        type="text" 
-        id="city-input"
-        onfocus="this.value=''" 
-        class="city-input" 
-        value="Please insert a city">
-        <button id="submit">Submit</button>
+        <button class="geolocation">Use your location 
+            <img src="./img/SVG/location.svg" alt="geolocation">
+        </button>
+        <div class="search-container">
+            <input 
+            type="text" 
+            id="city-input"
+            onfocus="this.value=''" 
+            class="city-input" 
+            value="Please insert a city">
+            <button id="submit">
+                <img src="./img/SVG/search.svg" alt="search">
+            </button>
+        </div>
     </div>
     <!-- end fields container -->
 
     <!-- start display container -->
-    <div class="display-container">
-        <div class="weather-result"></div>
+    <div class="container display-container">
+        <div class="weather-result">
+            
+        </div>
         <div class="extra-result"></div>
     </div>
     <!-- end display container -->
 
 
     <script src="script.js" type="module"></script>
+</div>
 </body>
 </html>
