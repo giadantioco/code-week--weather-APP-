@@ -1,12 +1,12 @@
 // imports
 import { cities } from './data/cities.js'
-import { API_KEY } from './keys.js'
+// import { API_KEY } from './keys.js'
 
 // select global elements
 const dateTimeContainerEl = document.querySelector('.dateTime-container')
 const containerEl = document.querySelector('.weather-result')
 const extraEl = document.querySelector('.extra-result')
-
+const API_KEY = 'db14a59498f2cd5220c763eb8b8978d5';
 
 // select list generator
 const dropDownSelect = (city) => {
