@@ -16,7 +16,7 @@
   I started by thinking the logic of the app and I developed the display only after: such a mistake! I did not know how much logic I could have added and I had no clue about the style yet. <br>
   I still would like to implement the filtered search by adding the API with altitude, longitude and country code because I runned out of time [go to openweater API](https://openweathermap.org/api/geocoding-api) <br>
   My script.js file is very messy, sorry. <br>
-  The thing I troubled the most with has been CSS media queries of search button (the gray one with the magnifier) <br> 
+  The thing I troubled the most with has been the CSS of the search button (the gray one with the magnifier) <br> 
   The day before the deadline I didn't realise I had internet down and I thounght I broke the app :joy:
 </p>
 
