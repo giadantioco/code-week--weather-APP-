@@ -85,12 +85,24 @@ async function fetchWeather(city) {
   catch (error) {
     console.error(error)
 
-    const bodyEl = document.querySelector('body')
-    const loadErrTitleEl = document.createElement('h1')
+    const mainContainerEl = document.querySelector('.main-container')
+    const errorContainerEl = document.createElement('div')
+    errorContainerEl.classList.add('error-container')
 
-    loadErrTitleEl.textContent = 'Page loading error'
+    const errorImageEl = document.createElement('img')
+    errorImageEl.src = './img/SVG/error.svg'
+    errorImageEl.alt = 'error image'
+    errorImageEl.classList.add('error-image')
 
-    bodyEl.appendChild(loadErrTitleEl)
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.textContent = 'Ops! Something went wrong loading the page'
+    errorMessageEl.classList.add('error-message')
+
+    errorContainerEl.append(errorImageEl, errorMessageEl)
+
+    document.body.appendChild(errorContainerEl)
+    mainContainerEl.style.display = 'none'
+
   }
 
 
@@ -109,6 +121,7 @@ async function fetchWeather(city) {
 
     // create H2 for city name
     const cityNameEl = document.createElement('h2')
+    // cityNameEl.style.textTransform = 'capitalize'
     // create p tags for descriptions and icon
     const dateEl = document.createElement('p')
     const timeEl = document.createElement('p')
@@ -272,7 +285,7 @@ const renderNewCity = () => {
         
        })
       
-    }
+    } 
 
   })
 
@@ -342,6 +355,7 @@ function cambiaSfondo() {
   // Ottieni l'ora corrente
   const oraCorrente = new Date().getHours();
   console.log(oraCorrente)
+  // oraCorrente = 22
   let immagineSfondo;
 
   // Imposta il colore di sfondo in base all'ora corrente perché ti interessa quella non i minuti
@@ -357,6 +371,7 @@ function cambiaSfondo() {
 
   // Imposta il colore di sfondo
   document.body.style.backgroundImage = `url(${immagineSfondo})`;
+  document.body.style.backgroundAttachment = 'fixed';
 }
 
 
@@ -414,6 +429,8 @@ const inputNewCity = () => {
       endpoint = inputValueEl
       fetchWeather(inputValueEl)
       
+    } else if (inputValueEl == '') {
+      console.warn('wrong input')
     }
   })
   // const inputValueEl = inputEl.value

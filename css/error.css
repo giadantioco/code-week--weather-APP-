@@ -1,0 +1,22 @@
+.error-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.error-image {
+    width: 50%;
+    height: 50%;
+}
+
+.error-message {
+    font-size: 25px;
+}
+
+/* .main-container {
+    display: none;
+} */

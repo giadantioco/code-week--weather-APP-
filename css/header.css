@@ -1,0 +1,40 @@
+/* header container */
+.header-container {
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* logo */
+.logo {
+    width: 130px;
+}
+
+/* date / time */
+.dateTime-container {
+    text-align: right;
+}
+
+/*  media for i-pad */
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+} */
+/* media for desktop */
+/* @media only screen and (min-width: 1025px) {
+
+} */
+
+/*  media for i-pad */
+@media only screen and (min-width: 390px) {
+
+    .header-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 15px;
+        padding: 15px; 
+    }
+
+}
+
